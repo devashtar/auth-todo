@@ -1,0 +1,6 @@
+nodu_modules
+husky
+build
+public
+*lock.json
+config-overrides.js

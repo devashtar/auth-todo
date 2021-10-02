@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@API/*": ["./API/*"],
+            "@API": ["./API"],
+            "@services/*": ["./services/*"],
+            "@services": ["./services"],
+            "@components/*": ["./components/*"],
+            "@components": ["./components"],
+            "@pages/*": ["./pages/*"],
+            "@pages": ["./pages"],
+            "@store/*": ["./store/*"],
+            "@store": ["./store"],
+            "@types/*": ["./types/*"],
+            "@types": ["./types"],
+            "@/*": ["./*"],
+            "@": ["./"]
+        }
+    }
+}

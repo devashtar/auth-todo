@@ -1,18 +1,31 @@
-# Getting Started with Create React App
+# === Custom react-typescript project ===
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+
+This assembly contains **modules** such as:
+- **typescript** - "The minimum set of types for working with a react"
+- **react-router-dom @types/react-router-dom**
+- **react-redux @types/react-redux**
+- **redux-thunk** - "By default includes types"
+- **react-app-rewired** - "Allow you use aliases in react(setup description below)"
+- **node-sass** - "Preprocessor css"
+- **eslint** - "An AST-based pattern checker for JavaScript"
+- **prettier** - "format code"
+- **husky** - "precommit cheker"
+- **lint-staged** - "Pre-commit code formatting tool"
+
+#### Aliases
+
+If you want add alises, you must to edit two files("config-overrides.js", tsconfig.paths.json).
+You must specify the same directory for the alias, but the path pattern is slightly different for example: 
+("@components/*": ["./src/Components/*"] and '@components': resolve(__dirname, 'src/Components')) - be careful!
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open [http://localhosfet:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
@@ -22,25 +35,32 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run lint`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Allows you to run a file check and identify errors in your project. (used eslint with prettier)
 
-### `npm run eject`
+### `npm run format`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Allows you to format files in your project. (used prettier)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## `Before commit...`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Run "husky" and "lint-staged" (settings in package.json), but without check test(jest);
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Cuted settings from "package-json" (NOT SUPPORT ALIASES IN TYPESCRIPT)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+"hooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "src/**/*.{js,ts,jsx,tsx}": [
+            "eslint --fix"
+        ],
+        "*.{json,css,scss}": [
+            "prettier --write"
+        ],
+        "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+},
+```
